@@ -1,0 +1,135 @@
+.prueba{
+	position: relative;
+	min-height: 70vh;
+}
+body{
+min-height: 100vh;
+}
+.container-contacto{
+	position: relative;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.contacto{
+	position: relative;
+	margin-top: 30px;
+	border: 1px solid #eeeeee;
+	width: 450px;
+	min-height: 300px;
+	border-radius: 10px;
+	box-shadow: 1px 1px 5px #bdbdbd;
+	background: white;
+	overflow: hidden;
+}
+.campos{
+	position: relative;
+	margin-top: 30px;
+	width: 90%;
+}
+.formulario{
+	position: relative;
+	width: 90%;
+}
+.campo{
+	width: 90%;
+	height: 40px;
+	padding: 7px;
+}
+.campo input{
+	width: 100%;
+	height: 100%;
+	border: transparent;
+	color: #37474F;
+	width: 100%;
+	font-weight: 300;
+	font-size: 17px;
+	background: #fafafa;
+	outline: none;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.01);
+	transition: padding 0.3s ease-in-out, border 0.5s ease-in-out;
+}
+input:focus{
+	border-bottom: 1px solid #00BFA5;
+	padding-left: 3px;
+}
+textarea{
+	margin-top: 10px;
+	min-width: 90%;
+	max-width: 90%;
+	min-height: 100px;
+	max-height: 100px;
+	border: transparent;
+	color: #37474F;
+	font-weight: 300;
+	font-size: 17px;
+	background: #fafafa;
+	outline: none;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.01);
+	transition: padding 0.3s ease-in-out, border 0.5s ease-in-out;
+}
+textarea:focus{
+	margin-top: 5px;
+	border-bottom: 1px solid #00BFA5;
+	padding-left: 3px;
+}
+.boton-contacto{
+	width: 90%;
+	height: 35px;
+	margin: 15px;
+	margin-bottom: 30px;
+	background: #00BFA5;
+	border: transparent;
+	border-radius: 5px;
+	color: white;
+	box-shadow: 1px 1px 3px #bdbdbd;
+	transition: all .3s;
+}
+.boton-contacto:hover{
+	box-shadow: 2px 2px 5px #bdbdbd;
+	background: #0091ea;
+}
+.contacto h3{
+	margin-top: 15px;
+	color: #757575;
+}
+.cfr{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.cfc{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.fuente-raleway{
+	font-family: 'Raleway', sans-serif;
+}
+.footer{
+	width: 100%;
+	min-height: 20vh;
+	background: #00bfa5;
+	position: relative;
+	bottom: 0;
+}
+.contenedor-footer{
+	width: 100%;
+	min-height: 20vh;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.subfooter{
+	width: 23%;
+	min-height: 20vh;
+}
+.menu-elementos ul,li{
+	list-style: none;
+}
+.menu-elementos li{
+	padding: 2px;
+}
+.menu-elementos li{
+	text-align: center;
+	color: white;
+}

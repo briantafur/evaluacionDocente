@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/body.xhtml">
+	<ui:define name="contenido">
+
+
+		<div class="container-contacto cfr">
+			<div class="contacto cfc">
+				<h3 class="fuente-raleway">Crear Programa</h3>
+				<div class="campos cfc">
+					<h:form id="formularioprograma" class="formulario cfc">
+						<div class="campo">
+							<p:outputLabel value="#{msj['programa.nombreprograma']}" />
+							<p:selectOneMenu converter="#{facultadConverter}" id="facultadprograma"
+								value="#{controladorprograma.facultad}">
+								<f:selectItems value="#{controladorprograma.facultades}" var="fac"
+									itemValue="#{fac}" itemLabel="#{fac.nombre}" />
+							</p:selectOneMenu>
+						</div>
+
+						<div class="campo">
+							<p:watermark class="formulario cfc" for="pregunta"
+								value="#{msj['programa.nombreprograma']}" />
+							<h:inputText id="pregunta" type="text"
+								value="#{controladorprograma.nombre}" />
+						</div>
+
+						<div class="campo">
+							<p:watermark class="formulario cfc" for="codpregunta"
+								value="#{msj['programa.codigoprograma']}" />
+							<h:inputText id="codpregunta" type="text"
+								value="#{controladorprograma.idprograma}" />
+						</div>
+
+						<h:commandButton class="boton-contacto" type="submit"
+							value="Guardar" action="#{controladorprograma.crearPrograma()}" />
+					</h:form>
+				</div>
+			</div>
+		</div>
+
+
+	</ui:define>
+</ui:composition>
+
+</html>

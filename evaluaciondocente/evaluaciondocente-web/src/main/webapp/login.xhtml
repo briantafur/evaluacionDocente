@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/body.xhtml">
+	<ui:define name="contenido">
+
+
+		<div class="container-contacto cfr">
+			<div class="contacto cfc">
+				<h3 class="fuente-raleway">Login</h3>
+				<div class="campos cfc">
+					<h:form id="formulariologin" class="formulario cfc">
+						<div class="campo">
+							<p:watermark class="formulario cfc" for="usernamelogin"
+								value="#{msj['login.nameuser']}" />
+							<h:inputText id="usernamelogin" type="text" class="validate"
+								value="#{sessionbean.nickname}" />
+						</div>
+						<div class="campo">
+							<p:watermark class="formulario cfc" for="passlogin"
+								value="#{msj['login.pass']}" />
+							<h:inputSecret id="passlogin" type="text" class="validate"
+								value="#{sessionbean.contra}" />
+						</div>
+						<h:commandButton class="boton-contacto" type="submit"
+							value="Ingresar" action="#{sessionbean.iniciarSesion()}" />
+					</h:form>
+				</div>
+			</div>
+		</div>
+
+
+	</ui:define>
+</ui:composition>
+
+</html>

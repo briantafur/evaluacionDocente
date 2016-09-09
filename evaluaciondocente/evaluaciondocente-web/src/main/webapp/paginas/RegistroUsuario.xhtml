@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/body.xhtml">
+	<ui:define name="contenido">
+		<div class="container-contacto cfr">
+			<div class="contacto cfc">
+				<h3 class="fuente-raleway">Registro Usuario</h3>
+				<div  class="campos cfc">
+					<h:form id="formlogin" class="formulario cfc">
+						<div class="campo cfc">
+							<h:inputText id="cedula" type="text" class="validate" required="true"
+								value="#{controladorCrearUsuario.cedula}" validator="numeros"/>
+								<h:message for="cedula"/>
+							<p:watermark for="cedula" value="#{msj['usuario.cedula']}" />
+						</div>
+						<div class="campo cfc">
+							<h:inputText id="nombre" type="text" class="validate"
+								value="#{controladorCrearUsuario.nombre}" required="true" validator="letras" />
+							<h:message for="nombre" />
+							<p:watermark for="nombre" value="#{msj['usuario.nombre']}" />
+						</div>
+						<div class="campo cfc">
+							<h:inputText id="apellido" type="text" class="validate"
+								value="#{controladorCrearUsuario.apellido}" required="true"
+								validator="letras" />
+							<h:message for="apellido" />
+							<p:watermark for="apellido" value="#{msj['usuario.apellido']}" />
+						</div>
+						<div class="campo cfc">
+							<h:inputText id="nickname" type="text" class="validate" required="true"
+								value="#{controladorCrearUsuario.nickname}" validator="letras" />
+							<h:message for="nickname" />
+							<p:watermark for="nickname" value="#{msj['usuario.nickname']}" />
+						</div>
+						<div class="campo cfc">
+							<h:inputSecret id="pass" type="password" class="validate"
+								value="#{controladorCrearUsuario.password}" />
+							<p:watermark for="pass" value="#{msj['usuario.pass']}" />
+						</div>
+						<div class="campo">
+							<p:outputLabel value="Usuario: " />
+							<p:selectOneMenu id="tipousuario"
+								value="#{controladorCrearUsuario.tipoUsuario}">
+								<f:selectItem itemLabel="#{msj['usuario.tipoUsuario']}"
+									itemValue="0" />
+								<f:selectItem itemLabel="#{msj['usuario.coordinador']}"
+									itemValue="1" />
+								<f:selectItem itemLabel="#{msj['usuario.deacano']}"
+									itemValue="2" />
+								<p:ajax update="programafacultad comboPrograma comboFacultad"
+									listener="#{controladorCrearUsuario.cambioEstado()}" />
+							</p:selectOneMenu>
+						</div>
+						<h:panelGroup id="comboPrograma" class="campo">
+							<p:outputLabel id="label" value="#{msj['usuario.programa']}"
+								rendered="#{controladorCrearUsuario.tipoUsuario==1}" />
+							<p:selectOneMenu id="programafacultad"
+								value="#{controladorCrearUsuario.programa}"
+								rendered="#{controladorCrearUsuario.tipoUsuario==1}"
+								converter="omnifaces.SelectItemsConverter">
+								<f:selectItems value="#{controladorCrearUsuario.listaProgramas}"
+									var="programa" itemLabel="#{programa.nombre}"
+									itemValue="#{programa}" />
+							</p:selectOneMenu>
+						</h:panelGroup>
+						<h:panelGroup id="comboFacultad" class="campo">
+							<p:outputLabel value="#{msj['usuario.facultad']}"
+								rendered="#{controladorCrearUsuario.tipoUsuario==2}" />
+							<p:selectOneMenu value="#{controladorCrearUsuario.facultad}"
+								rendered="#{controladorCrearUsuario.tipoUsuario==2}"
+								converter="omnifaces.SelectItemsConverter">
+								<f:selectItems value="#{controladorCrearUsuario.listaFacultad}"
+									var="facultad" itemLabel="#{facultad.nombre}"
+									itemValue="#{facultad}" />
+							</p:selectOneMenu>
+						</h:panelGroup>
+						<p:commandButton class="boton-contacto" value="Registrar"
+							action="#{controladorCrearUsuario.registrar()}"
+							update="formlogin"/>
+					</h:form>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

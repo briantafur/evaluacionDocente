@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<h:outputStylesheet library="css" name="index.css"/>
+</h:head> 
+<h:body> 
+	<div>
+	<h:form prependId="false" id="form">  
+    <p:growl id="messages"/>
+    <p:menubar rendered="#{sessionbean.isLogged()}">
+        <p:submenu label="Registro" icon="ui-icon-document">
+        	<p:submenu label="Usuario" icon="ui-icon-refresh">
+        		<p:menuitem value="Registrar" action="/paginas/RegistroUsuario?faces-redirect=true" icon="ui-icon-close" />
+        		<p:separator />
+                <p:menuitem value="Eliminar" action="#" icon="ui-icon-close" />
+            </p:submenu>
+        </p:submenu>
+        
+        <p:submenu label="Preguntas" icon="ui-icon-document">
+        	<p:menuitem value="Registrar" action="/paginas/RegistroPreguntas?faces-redirect=true" icon="ui-icon-close">
+        	
+        	</p:menuitem>
+        </p:submenu>
+ 
+        <p:menuitem value="Crear Programa" action="/paginas/CrearPrograma?faces-redirect=true" icon="ui-icon-close" />
+        
+        <p:menuitem value="Inicio" action="/paginas/index?faces-redirect=true" icon="ui-icon-close" />
+ 
+        <f:facet name="options">
+            
+            <p:commandButton value="Logout" icon="ui-icon-extlink" action="#{sessionbean.logOut()}"/>
+        </f:facet>
+    </p:menubar>
+	</h:form>
+	</div>
+</h:body> 
+</html>
